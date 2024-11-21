@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 import { getAllMovies } from "../data/movies"
+import { getImgUrl } from "../utils/cine-utility"
 
 const MovieList = () => {
     const movies = getAllMovies();
@@ -10,7 +11,7 @@ const MovieList = () => {
                 {
                     movies.map((movie) => (
                         <figure id={movie.id} className="p-4 border border-black/10 shadow-sm dark:border-white/10 rounded-xl">
-                            <img className="w-full object-cover" src="./assets/movie-1.png" alt="" />
+                            <img className="w-full object-cover" src={getImgUrl(movie.cover)} alt="" />
                             <figcaption className="pt-4">
                                 <h3 className="text-xl mb-1">{movie.title}</h3>
                                 <p className="text-[#575A6E] text-sm mb-2">{movie.genre}</p>
