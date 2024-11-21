@@ -16,7 +16,7 @@ const Header = () => {
     return (
         <header>
             {
-                showCard && <CardDetails></CardDetails>
+                showCard && <CardDetails onClose={() => setShowCard(false)}></CardDetails>
             }
             <nav className="container flex items-center justify-between space-x-10 py-6">
                 <a href="index.html">
