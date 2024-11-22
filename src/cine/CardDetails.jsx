@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 import { useContext } from "react"
@@ -8,6 +9,13 @@ import { getImgUrl } from "../utils/cine-utility";
 
 const CardDetails = ({ onClose }) => {
     const { cardData, setCardData } = useContext(MovieContext);
+
+    const handleDeleteCard = (itemId) => {
+        const filteredItem = cardData.filter((item) => {
+            return item.id !== itemId;
+        })
+        setCardData([...filteredItem]);
+    }
     return (
         <div
             className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/60 backdrop-blur-sm"
@@ -44,6 +52,7 @@ const CardDetails = ({ onClose }) => {
                                     <div className="flex justify-between gap-4 items-center">
                                         <button
                                             className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white"
+                                            onClick={(e) => handleDeleteCard(item.id)}
                                         >
                                             <img className="w-5 h-5" src={Delete} alt="" />
                                             <span className="max-md:hidden">Remove</span>
