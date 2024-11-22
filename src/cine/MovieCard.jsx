@@ -1,12 +1,15 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { getImgUrl } from "../utils/cine-utility.js"
 import Rating from "./Rating.jsx"
 import MovieDetailsModal from "./MovieDetailsModal.jsx";
+import { MovieContext } from "../context/index.js";
 const MovieCard = ({ movie }) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
+
+    const { cardData, setCardData } = useContext(MovieContext);
 
     const handleModalClose = () => {
         setSelectedMovie(null);
