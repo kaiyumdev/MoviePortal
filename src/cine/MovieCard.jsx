@@ -42,6 +42,7 @@ const MovieCard = ({ movie }) => {
                     <MovieDetailsModal
                         movie={selectedMovie}
                         onClose={handleModalClose}
+                        onCardAdd={handleAddToCard}
                     />
                 )
             }

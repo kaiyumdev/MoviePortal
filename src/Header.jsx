@@ -42,7 +42,7 @@ const Header = () => {
                             <img src={ShoppingCart} width="24" height="24" alt="" />
                             {
                                 cardData.length > 0 && (
-                                    <span className="rounded-full absolute top-[-12px] right-[-28px] bg-[#12CF6F] text-white text-center p-[2px] w-[30px] h-[30px]">{cardData.length}</span>
+                                    <span className="rounded-full absolute top-[-12px] left-[28px] bg-[#12CF6F] text-white text-center p-[2px] w-[30px] h-[30px]">{cardData.length}</span>
                                 )
                             }
                         </a>
