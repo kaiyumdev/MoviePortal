@@ -24,6 +24,15 @@ const MovieCard = ({ movie }) => {
     const handleAddToCard = (event, movie) => {
         event.stopPropagation();
         console.log(movie);
+
+        const found = cardData.find((item) => {
+            return item.id === movie.id;
+        });
+        if (!found) {
+            setCardData([...cardData, movie]);
+        } else {
+            console.log(`The Movie ${movie.title} has been added to the card already!`)
+        }
     }
 
     return (
