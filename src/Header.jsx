@@ -3,11 +3,14 @@ import Logo from "../src/assets/logo.svg";
 import Ring from "../src/assets/ring.svg";
 import Moon from "../src/assets/icons/moon.svg";
 import ShoppingCart from "../src/assets/shopping-cart.svg";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CardDetails from "./cine/CardDetails";
+import { MovieContext } from "./context";
 
 const Header = () => {
     const [showCard, setShowCard] = useState(false);
+    const { cardData } = useContext(MovieContext)
+    console.log(cardData);
 
     const handleShowCard = () => {
         setShowCard(true);
@@ -37,6 +40,11 @@ const Header = () => {
                     <li>
                         <a className="bg-primary/20 dark:bg-primary/[7%] rounded-lg backdrop-blur-[2px] p-1 inline-block" href="#" onClick={handleShowCard}>
                             <img src={ShoppingCart} width="24" height="24" alt="" />
+                            {
+                                cardData.length > 0 && (
+                                    <span className="rounded-full absolute top-[-12px] right-[-28px] bg-[#12CF6F] text-white text-center p-[2px] w-[30px] h-[30px]">{cardData.length}</span>
+                                )
+                            }
                         </a>
                     </li>
                 </ul>
