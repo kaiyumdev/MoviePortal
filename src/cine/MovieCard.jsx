@@ -9,7 +9,9 @@ const MovieCard = ({ movie }) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
-    const { cardData, setCardData } = useContext(MovieContext);
+    // const { cardData, setCardData } = useContext(MovieContext);
+    const { state, dispatch } = useContext(MovieContext);
+
 
     const handleModalClose = () => {
         setSelectedMovie(null);
@@ -25,11 +27,17 @@ const MovieCard = ({ movie }) => {
         event.stopPropagation();
         console.log(movie);
 
-        const found = cardData.find((item) => {
+        const found = state.cardData.find((item) => {
             return item.id === movie.id;
         });
         if (!found) {
-            setCardData([...cardData, movie]);
+            // setCardData([...cardData, movie]);
+            dispatch({
+                type: "ADD_TO_CARD",
+                payload: {
+                    ...movie,
+                }
+            })
         } else {
             console.log(`The Movie ${movie.title} has been added to the card already!`)
         }

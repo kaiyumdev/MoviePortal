@@ -8,13 +8,20 @@ import Checkout from "../assets/icons/checkout.svg";
 import { getImgUrl } from "../utils/cine-utility";
 
 const CardDetails = ({ onClose }) => {
-    const { cardData, setCardData } = useContext(MovieContext);
+    // const { cardData, setCardData } = useContext(MovieContext);
+    const { state, dispatch } = useContext(MovieContext);
 
-    const handleDeleteCard = (itemId) => {
-        const filteredItem = cardData.filter((item) => {
-            return item.id !== itemId;
-        })
-        setCardData([...filteredItem]);
+
+    const handleDeleteCard = (event, item) => {
+        event.preventDefault();
+        // const filteredItem = state.cardData.filter((item) => {
+        //     return item.id !== itemId;
+        // })
+        // dispatch([...filteredItem]);
+        dispatch({
+            type: "REMOVE_FROM_CARD",
+            payload: item,
+        });
     }
     return (
         <div
@@ -31,12 +38,12 @@ const CardDetails = ({ onClose }) => {
                         className="space-y-8 lg:space-y-12 max-h-[450px] overflow-auto mb-10 lg:mb-14"
                     >
                         {
-                            cardData.length === 0 ? (
+                            state.cardData.length === 0 ? (
                                 <div className="text-center">
                                     <p className="text-base md:text-lg">Your cart is empty.</p>
                                 </div>
                             ) :
-                                cardData.map((item) => (
+                                state.cardData.map((item) => (
                                     <div key={item.id} className="grid grid-cols-[1fr_auto] gap-4">
                                         <div className="flex items-center gap-4">
                                             <img
@@ -57,7 +64,7 @@ const CardDetails = ({ onClose }) => {
                                         <div className="flex justify-between gap-4 items-center">
                                             <button
                                                 className="bg-[#D42967] rounded-md p-2 md:px-4 inline-flex items-center space-x-2 text-white"
-                                                onClick={(e) => handleDeleteCard(item.id)}
+                                                onClick={(e) => handleDeleteCard(e, item)}
                                             >
                                                 <img className="w-5 h-5" src={Delete} alt="" />
                                                 <span className="max-md:hidden">Remove</span>

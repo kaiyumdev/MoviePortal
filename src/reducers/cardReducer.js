@@ -23,3 +23,5 @@ const cardReducer = (state, action) => {
             return state;
     }
 }
+
+export { cardReducer, initialState }
