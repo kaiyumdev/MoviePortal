@@ -3,7 +3,7 @@ import { MovieContext, ThemeContext } from './context'
 import Page from './Page'
 function App() {
   const [cardData, setCardData] = useState([]);
-  const [darkMode, setDarkMode] = useState([]);
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
     <>
