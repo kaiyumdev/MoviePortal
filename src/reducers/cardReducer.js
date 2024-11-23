@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-unreachable */
 const initialState = {
     cardData: []
 };
@@ -16,5 +18,8 @@ const cardReducer = (state, action) => {
                 cardData: state.cardData.filter(item => item.id !== action.payload.id),
             }
             break;
+
+        default:
+            return state;
     }
 }
