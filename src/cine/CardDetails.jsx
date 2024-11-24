@@ -19,7 +19,7 @@ const CardDetails = ({ onClose }) => {
         // })
         // dispatch([...filteredItem]);
         dispatch({
-            type: "REMOVE_FROM_CARD",
+            type: "REMOVE_FORM_CARD",
             payload: item,
         });
     }

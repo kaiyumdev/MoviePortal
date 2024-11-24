@@ -24,42 +24,42 @@ const MovieCard = ({ movie }) => {
         setShowModal(true);
     }
 
-    // const handleAddToCard = (event, movie) => {
-    //     event.stopPropagation();
-    //     const found = state.cardData.find((item) => {
-    //         return item?.id === movie.id;
-    //     });
-    //     if (!found) {
-    //         // setCardData([...cardData, movie]);
-    //         dispatch({
-    //             type: "ADD_TO_CARD",
-    //             payload: {
-    //                 ...movie,
-    //             }
-    //         })
-    //     } else {
-    //         console.log(`The Movie ${movie.title} has been added to the card already!`)
-    //     }
-    // }
-
     const handleAddToCard = (event, movie) => {
         event.stopPropagation();
-        if (!movie || !state.cardData) {
-            console.error("Movie or cardData is undefined.");
-            return;
-        }
-        const found = state.cardData.find((item) => item?.id === movie.id);
+        const found = state.cardData.find((item) => {
+            return item?.id === movie.id;
+        });
         if (!found) {
+            // setCardData([...cardData, movie]);
             dispatch({
                 type: "ADD_TO_CARD",
                 payload: {
                     ...movie,
                 }
-            });
+            })
         } else {
-            console.log(`The Movie ${movie.title} has already been added to the card!`);
+            console.log(`The Movie ${movie.title} has been added to the card already!`)
         }
-    };
+    }
+
+    // const handleAddToCard = (event, movie) => {
+    //     event.stopPropagation();
+    //     if (!movie || !state.cardData) {
+    //         console.error("Movie or cardData is undefined.");
+    //         return;
+    //     }
+    //     const found = state.cardData.find((item) => item?.id === movie.id);
+    //     if (!found) {
+    //         dispatch({
+    //             type: "ADD_TO_CARD",
+    //             payload: {
+    //                 ...movie,
+    //             }
+    //         });
+    //     } else {
+    //         console.log(`The Movie ${movie.title} has already been added to the card!`);
+    //     }
+    // };
 
 
     return (
