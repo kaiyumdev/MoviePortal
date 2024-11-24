@@ -25,10 +25,8 @@ const MovieCard = ({ movie }) => {
 
     const handleAddToCard = (event, movie) => {
         event.stopPropagation();
-        console.log(movie);
-
         const found = state.cardData.find((item) => {
-            return item.id === movie.id;
+            return item?.id === movie.id;
         });
         if (!found) {
             // setCardData([...cardData, movie]);
