@@ -2,8 +2,8 @@ import { useContext } from "react"
 import MovieList from "./cine/MovieList"
 import Footer from "./Footer"
 import Header from "./Header"
-import Sdidebar from "./Sdidebar"
 import { ThemeContext } from "./context"
+import Sdidebar from "./Sidebar"
 
 const Page = () => {
     const { darkMode } = useContext(ThemeContext);
