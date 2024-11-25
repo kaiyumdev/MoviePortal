@@ -11,8 +11,6 @@ const MovieCard = ({ movie }) => {
 
     // const { cardData, setCardData } = useContext(MovieContext);
     const { state, dispatch } = useContext(MovieContext);
-    console.log(state);
-
 
     const handleModalClose = () => {
         setSelectedMovie(null);
