@@ -1,6 +1,5 @@
-import { getImgUrl } from "../utils/cine-utility"
-
 /* eslint-disable react/prop-types */
+import { getImgUrl } from "../utils/cine-utility"
 const MovieDetailsModal = ({ movie, onClose, onCardAdd }) => {
     return (
         <div
@@ -31,7 +30,7 @@ const MovieDetailsModal = ({ movie, onClose, onCardAdd }) => {
                             <a
                                 className="bg-primary rounded-lg py-2 px-5 flex items-center justify-center gap-2 text-[#171923] font-semibold text-sm"
                                 href="#"
-                                onClick={onCardAdd}
+                                onClick={(e) => onCardAdd(e, movie)} // Pass the movie object explicitly
                             >
                                 <img src="./assets/tag.svg" alt="" />
                                 <span>${movie.price} | Add to Cart</span>
@@ -51,4 +50,4 @@ const MovieDetailsModal = ({ movie, onClose, onCardAdd }) => {
     )
 }
 
-export default MovieDetailsModal
+export default MovieDetailsModal;
