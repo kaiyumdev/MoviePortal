@@ -3,6 +3,7 @@
 import { getAllMovies } from "../data/movies"
 import MovieCard from "./MovieCard.jsx";
 
+//MovieList component
 const MovieList = () => {
     const movies = getAllMovies();
     return (
