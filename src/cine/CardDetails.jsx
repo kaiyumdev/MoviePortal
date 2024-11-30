@@ -7,6 +7,7 @@ import Delete from "../assets/delete.svg";
 import Checkout from "../assets/icons/checkout.svg";
 import { getImgUrl } from "../utils/cine-utility";
 
+//CardDetails component
 const CardDetails = ({ onClose }) => {
     // const { cardData, setCardData } = useContext(MovieContext);
     const { state, dispatch } = useContext(MovieContext);
