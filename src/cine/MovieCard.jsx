@@ -5,6 +5,8 @@ import { getImgUrl } from "../utils/cine-utility.js"
 import Rating from "./Rating.jsx"
 import MovieDetailsModal from "./MovieDetailsModal.jsx";
 import { MovieContext } from "../context/index.js";
+
+//MovieCard component
 const MovieCard = ({ movie }) => {
     const [showModal, setShowModal] = useState(false);
     const [selectedMovie, setSelectedMovie] = useState(null);
