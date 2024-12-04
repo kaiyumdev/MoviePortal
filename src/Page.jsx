@@ -5,6 +5,7 @@ import Header from "./Header"
 import { ThemeContext } from "./context"
 import Sdidebar from "./Sidebar"
 
+//web page component
 const Page = () => {
     const { darkMode } = useContext(ThemeContext);
     return (
